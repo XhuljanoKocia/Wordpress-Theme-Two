@@ -1,41 +1,77 @@
 <?php get_header(); ?>
 
-  <div id="content">
+    <div id="content">
 
-<!-- Add any template tags outside of loop -->
+      <!-- Static Front Page -->
+      <?php if(is_front_page() && !is_home()) : ?>
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <h1>Static Front Page</h1>
 
-      <!-- Add any post template tags inside of loop -->
+      <?php endif; ?>
 
-      <article <?php post_class(); ?>>
-        <h2><?php the_title(); ?></h2>
-        <?php the_content(); ?>
-        <footer>
-          <p class="byline">
-            Author:
-            <a href="<?php echo get_author_posts_url($post->$post_author); ?>">
-              <?php the_author(); ?>
-            </a> |
-            Date:
-            <?php the_time('M. j, Y'); ?> |
-            Categories:
-            <?php the_category(','); ?> |
-            Tags:
-            <?php the_tags('', ', ', '') ?>
-          </p>
-        </footer>
-      </article>
+      <!-- Blog Home -->
+      <?php if(is_home()) : ?>
 
-    <?php endwhile; else: ?>
+        <h1>Blog</h1>
 
-      <h2><?php esc_html_e( '404 Error', 'phpforwp' ); ?></h2>
-      <p><?php esc_html_e( 'Sorry, content not found.', 'phpforwp' ); ?></p>
+      <?php endif; ?>
 
-    <?php endif; ?>
+      <!-- Page (Not Front Page) -->
+      <?php if(is_page() && !is_front_page()) : ?>
 
-<!-- Add any template tags outside of loop -->
+        <h1>Page</h1>
 
-  </div>
+      <?php endif; ?>
+
+      <!-- Single Post -->
+      <?php if(is_single() && !is_attachment()) : ?>
+
+        <h1>Post</h1>
+
+      <?php endif; ?>
+
+      <!-- Single Attachment (Media) -->
+      <?php if(is_attachment()) : ?>
+
+        <h1>Attachment</h1>
+
+      <?php endif; ?>
+
+      <!-- Category Archive -->
+      <?php if(is_category()) : ?>
+
+        <h1><?php single_cat_title(); ?></h1>
+
+      <?php endif; ?>
+
+      <!-- Tag Archive -->
+      <?php if(is_tag()) : ?>
+
+        <h1><?php single_tag_title(); ?></h1>
+
+      <?php endif; ?>
+
+      <!-- Author Archive -->
+      <?php if(is_author()) : ?>
+
+        <h1><?php the_archive_title(); ?></h1>
+
+      <?php endif; ?>
+
+      <!-- Date Archive -->
+      <?php if(is_date()) : ?>
+
+        <h1><?php the_archive_title(); ?></h1>
+
+      <?php endif; ?>
+
+      <!-- 404 Page -->
+      <?php if(is_404()) : ?>
+
+        <h1>404</h1>
+
+      <?php endif; ?>
+
+    </div>
 
 <?php get_footer(); ?>
