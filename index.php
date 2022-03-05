@@ -16,13 +16,15 @@
 
     <?php
 
-      // Create a variable called $name and assign it your name
+      $name = "Tranquility";
+      $first = "Xhuljano";
+      $last = "Koçia";
 
     ?>
 
     <h2>Welcome!</h2>
 
-    <p>My name is "<?php // echo $name variable here ?>."</p>
+    <p>My name is "<?php echo $first . " " . $last; ?>"</p>
 
   </div>
 </body>
