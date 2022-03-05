@@ -14,35 +14,16 @@
 
   <div id="content">
 
+    <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 
-    <?php
+      <h1><?php the_title(); ?></h1>
+      <?php the_content(); ?>
 
-      // Create an array of post objects using the display_post function
-      $post_titles = [
-        "Hello World",
-        "Hello PHP",
-        "Hello WordPress!"
-      ];
+    <?php endwhile; else : ?>
 
-      // Loop through array of posts and display each one on the page
-      foreach($post_titles as $post_title){
-        // Call the display_title function and pass it the $post
-        display_title($post_title);
-      }
+      <?php _e("Sorry! No content found!", "phpforwp"); ?>
 
-
-      /**
-       * Custom function for displaying the title and content for a post
-       *
-       * @param string $title The title to be displayed
-       */
-      function display_title( $title ) {
-
-        // Echo an <h3> tag with the $title inside
-        echo "<h3>$title</h3>";
-      }
-
-    ?>
+    <?php endif; ?>
 
   </div>
 
