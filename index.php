@@ -2,73 +2,33 @@
 
     <div id="content">
 
-      <!-- Static Front Page -->
-      <?php if(is_front_page() && !is_home()) : ?>
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-        <h1>Static Front Page</h1>
+        <article class="<?php post_class(); ?>">
 
-      <?php endif; ?>
+          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-      <!-- Blog Home -->
-      <?php if(is_home()) : ?>
+          <p class="byline">
+          </p>
 
-        <h1>Blog</h1>
+          <?php the_excerpt(); ?>
 
-      <?php endif; ?>
+          <footer>
+            <p class="byline">
+              Author:
+              <a href="<?php echo get_author_posts_url( $post->post_author ); ?>"><?php the_author(); ?></a> |
+              Date: <?php the_time( 'M. j, Y' ); ?> |
+              Categories: <?php the_category( ',' ); ?> |
+              Tags: <?php the_tags( '', ',', '' ); ?>
+            </p>
+          </footer>
 
-      <!-- Page (Not Front Page) -->
-      <?php if(is_page() && !is_front_page()) : ?>
+        </article>
 
-        <h1>Page</h1>
+      <?php endwhile; else: ?>
 
-      <?php endif; ?>
-
-      <!-- Single Post -->
-      <?php if(is_single() && !is_attachment()) : ?>
-
-        <h1>Post</h1>
-
-      <?php endif; ?>
-
-      <!-- Single Attachment (Media) -->
-      <?php if(is_attachment()) : ?>
-
-        <h1>Attachment</h1>
-
-      <?php endif; ?>
-
-      <!-- Category Archive -->
-      <?php if(is_category()) : ?>
-
-        <h1><?php single_cat_title(); ?></h1>
-
-      <?php endif; ?>
-
-      <!-- Tag Archive -->
-      <?php if(is_tag()) : ?>
-
-        <h1><?php single_tag_title(); ?></h1>
-
-      <?php endif; ?>
-
-      <!-- Author Archive -->
-      <?php if(is_author()) : ?>
-
-        <h1><?php the_archive_title(); ?></h1>
-
-      <?php endif; ?>
-
-      <!-- Date Archive -->
-      <?php if(is_date()) : ?>
-
-        <h1><?php the_archive_title(); ?></h1>
-
-      <?php endif; ?>
-
-      <!-- 404 Page -->
-      <?php if(is_404()) : ?>
-
-        <h1>404</h1>
+        <h2><?php esc_html_e( '404 Error' ); ?></h2>
+        <p><?php esc_html_e( 'Sorry, content not found.', 'phpforwp' ); ?></p>
 
       <?php endif; ?>
 
