@@ -8,6 +8,7 @@
     <?php wp_head(); ?>
 </head>
 <body>
+    
     <div class="notice">
         <p>Solo Theme 2 - Splash Page</p>
     </div>

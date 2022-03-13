@@ -15,6 +15,7 @@
     function solotheme_enqueue_styles() {
         wp_enqueue_style( 'main-css', get_stylesheet_directory_uri() . '/style.css', [], time(), 'all' );
     }
+    
     add_action( 'wp_enqueue_scripts', 'solotheme_enqueue_styles' );
 
     // Register Menu Locations
