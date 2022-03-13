@@ -9,10 +9,7 @@
 </head>
 <body <?php body_class(); ?>>
     <nav id="site-navigation" class="main-navigation" role="navigation">
-<<<<<<< HEAD
         <!-- We add our menu named main-menu to be displayed as our site menu in the header. -->
-=======
->>>>>>> 7afe6b98c9ad2da252602a0bd48a3c963fd42774
         <?php 
             $args = [
                 'theme_location' => 'main-menu'
