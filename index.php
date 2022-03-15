@@ -1,5 +1,25 @@
 <?php get_header(); ?>
 
-    <h1>Solo Theme</h1>
-    
+    <div id="primary" class="content-area">
+
+        <main id="main" class="site-main" role="main">
+
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+                <header class="entry-header">
+
+                    <h1>Solo Theme</h1>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>Some Text</p>
+                </div>
+
+            </article>
+
+        </main>
+
+    </div>
+
 <?php get_footer(); ?>
