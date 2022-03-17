@@ -23,4 +23,19 @@
         'main-menu' => esc_html__( 'Main Menu', 'solotheme' ),
         'footer-menu' => esc_html__( 'Footer Menu', 'solotheme' )
     ] );
+
+    // Setup Widget Areas
+    function solotheme_widgets_init() {
+        register_sidebar([
+            'name' => esc_html__( 'Main Sidebar', 'solothemetwo' ),
+            'id' => 'main-sidebar',
+            'description' => esc_html__( 'Add widgets for main sidebar here', 'solothemetwo' ),
+            'before_widget' => '<section class="widget">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        ]);
+    }
+    
+    add_action( 'widgets_init', 'solotheme_widgets_init' );
 ?>
