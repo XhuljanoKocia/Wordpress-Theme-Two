@@ -4,11 +4,9 @@
 
         <span class="dashicons dashicons-format-<?php echo get_post_format( $post->ID ); ?>"></span>
 
-        <?php the_title( '<h1>', '</h1>' ); ?>
+        <p><?php esc_html_e( 'Enjoy this gallery post!!!', 'solotheme' ); ?></p>
 
-        <div class="byline">
-            <?php esc_html_e( 'Author:' ); ?> <?php the_author(); ?>
-        </div>
+        <?php the_title( '<h1>', '</h1>' ); ?>
 
     </header>
 
