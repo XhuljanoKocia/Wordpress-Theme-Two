@@ -4,12 +4,7 @@
 
     <main id="main" class="site-main" role="main">
 
-      <div class="author-bio">
-        <h1><?php the_archive_title(); ?></h1>
-        <p>
-          <?php echo the_author_meta( 'description', $post->post_author ); ?>
-        </p>
-      </div>
+      <h1><?php the_archive_title(); ?></h1>
 
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -23,7 +18,7 @@
 
       <?php echo paginate_links(); ?>
 
-      <p>Template: author.php</p>
+      <p>Template: date.php</p>
 
     </main>
 

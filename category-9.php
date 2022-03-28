@@ -1,15 +1,16 @@
-<?php get_header(); ?>
+<?php get_header( 'splash' ); ?>
 
-  <div id="primary" class="content-area">
+  <div id="primary" class="content-area extended">
 
     <main id="main" class="site-main" role="main">
 
-      <div class="author-bio">
-        <h1><?php the_archive_title(); ?></h1>
-        <p>
-          <?php echo the_author_meta( 'description', $post->post_author ); ?>
-        </p>
-      </div>
+      <h1>
+        <?php the_archive_title(); ?>
+        <?php esc_html_e( ' Posts Only!', 'wphierachy' ); ?>
+      </h1>
+      <p><?php echo category_description(); ?></p>
+
+      <hr>
 
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -23,12 +24,10 @@
 
       <?php echo paginate_links(); ?>
 
-      <p>Template: author.php</p>
+      <p>Template: category-9.php</p>
 
     </main>
 
   </div>
 
-  <?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+<?php get_footer( 'splash' ); ?>
